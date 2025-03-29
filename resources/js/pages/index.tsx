@@ -27,6 +27,25 @@ export default function Welcome() {
             });
         }
     }, []);
+    useEffect(() => {
+        /**
+         * Correct scrolling position upon page load for URLs containing hash links.
+         */
+        window.addEventListener('load', function (e) {
+            if (window.location.hash) {
+                if (document.querySelector(window.location.hash)) {
+                    setTimeout(() => {
+                        const section = document.querySelector<HTMLDivElement>(window.location.hash)!;
+                        const scrollMarginTop = getComputedStyle(section).scrollMarginTop;
+                        window.scrollTo({
+                            top: section.offsetTop - parseInt(scrollMarginTop),
+                            behavior: 'smooth',
+                        });
+                    }, 100);
+                }
+            }
+        });
+    }, []);
 
     return (
         <>
@@ -37,7 +56,6 @@ export default function Welcome() {
                 <AppHeroSection />
                 <AppAboutSection />
                 <AppWhyUsSection />
-
                 <AppStatsSection />
                 <AppMenuSection />
                 <AppTestimonialSection />

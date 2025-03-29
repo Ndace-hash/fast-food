@@ -1,4 +1,30 @@
+import { useEffect, useRef } from 'react';
+
 export const AppFooterSection = () => {
+    /**
+     * Scroll top button
+     */
+    const scrollTop = useRef<HTMLAnchorElement>(null);
+
+    function toggleScrollTop() {
+        if (scrollTop.current) {
+            window.scrollY > 100 ? scrollTop.current!.classList.add('active') : scrollTop.current!.classList.remove('active');
+        }
+    }
+
+    useEffect(() => {
+        scrollTop.current!.addEventListener('click', (e) => {
+            e.preventDefault();
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth',
+            });
+        });
+
+        window.addEventListener('load', toggleScrollTop);
+        document.addEventListener('scroll', toggleScrollTop);
+    }, []);
+
     return (
         <>
             <footer id="footer" className="footer dark-background">
@@ -67,7 +93,7 @@ export const AppFooterSection = () => {
                 </div>
             </footer>
 
-            <a href="#" id="scroll-top" className="scroll-top d-flex align-items-center justify-content-center">
+            <a href="#" id="scroll-top" ref={scrollTop} className="scroll-top d-flex align-items-center justify-content-center">
                 <i className="bi bi-arrow-up-short"></i>
             </a>
         </>
