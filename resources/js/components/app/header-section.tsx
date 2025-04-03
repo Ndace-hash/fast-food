@@ -86,7 +86,7 @@ export const AppHeader = () => {
                     <span>.</span>
                 </a>
 
-                <nav id="navmenu" className="navmenu">
+                <nav id="navmenu" className="navmenu flex items-center gap-0">
                     <ul>
                         <li>
                             <a href="#hero" className="active">
@@ -99,7 +99,7 @@ export const AppHeader = () => {
                         <li>
                             <a href="#menu">Menu</a>
                         </li>
-                        <li>
+                        {/* <li>
                             <a href="#events">Events</a>
                         </li>
                         <li>
@@ -148,17 +148,29 @@ export const AppHeader = () => {
                                     <a href="#">Dropdown 4</a>
                                 </li>
                             </ul>
-                        </li>
+                        </li> */}
                         <li>
                             <a href="#contact">Contact</a>
                         </li>
+                        <li>
+                            <a
+                                className="rounded-md border-2 border-transparent bg-red-600 px-4 py-1 font-bold text-white uppercase md:rounded-2xl"
+                                href="/login"
+                            >
+                                Login
+                            </a>
+                        </li>
                     </ul>
                     <i className="mobile-nav-toggle d-xl-none bi bi-list" ref={mobileNavToggleBtn}></i>
-                </nav>
+                    <a href="/cart" className="m-0">
+                        <i className="bi bi-cart"></i>
+                        <span className="sr-only">Cart</span>
+                    </a>
 
-                <a className="btn-getstarted" href="/#book-a-table">
+                    {/* <a className="btn-getstarted" href="/#book-a-table">
                     Book a Table
-                </a>
+                    </a> */}
+                </nav>
             </div>
         </header>
     );
