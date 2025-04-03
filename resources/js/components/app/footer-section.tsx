@@ -46,6 +46,7 @@ export const AppFooterSection = () => {
                                 <h4>Contact</h4>
                                 <p>
                                     <strong>Phone:</strong> <span>+1 5589 55488 55</span>
+                                    <br />
                                     <strong>Email:</strong> <span>info@example.com</span>
                                 </p>
                             </div>
@@ -57,6 +58,7 @@ export const AppFooterSection = () => {
                                 <h4>Opening Hours</h4>
                                 <p>
                                     <strong>Mon-Sat:</strong> <span>11AM - 23PM</span>
+                                    <br />
                                     <strong>Sunday</strong>: <span>Closed</span>
                                 </p>
                             </div>
@@ -84,7 +86,7 @@ export const AppFooterSection = () => {
 
                 <div className="copyright container mt-4 text-center">
                     <p>
-                        © <span>Copyright</span> <strong className="sitename px-1">Yummy</strong> <span>All Rights Reserved</span>
+                        © <span>Copyright</span> <strong className="sitename px-1">Fast Food</strong> <span>All Rights Reserved</span>
                     </p>
                     <div className="credits">
                         Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a> Distributed by{' '}
