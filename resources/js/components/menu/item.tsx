@@ -1,6 +1,7 @@
 import { useCartContext } from '@/contexts/CartContext';
 import { IMeal } from '@/types/meal';
 import { FC } from 'react';
+import { Naira } from '../utils/Naira';
 // interface MenuItemProps {
 //     name: string;
 //     price: number;
@@ -17,7 +18,10 @@ export const MenuItem: FC<{ item: IMeal }> = (props) => {
             </a>
             <h4 className="capitalize">{item.name}</h4>
             <p className="ingredients">Lorem, deren, trataro, filede, nerada</p>
-            <p className="price">&#8358;{item.price}</p>
+            <p className="price">
+                <Naira />
+                {item.price}
+            </p>
 
             <button
                 className="rounded-2xl bg-red-600 px-2 py-1 font-semibold text-white uppercase"
