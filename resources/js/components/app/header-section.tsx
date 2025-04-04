@@ -1,9 +1,11 @@
+import { useCartContext } from '@/contexts/CartContext';
 import { useEffect, useRef } from 'react';
 
 export const AppHeader = () => {
     const mobileNavToggleBtn = useRef<HTMLElement>(null);
     const selectHeader = useRef<HTMLDivElement>(null);
 
+    const { cart } = useCartContext();
     /**
      * Apply .scrolled class to the body as the page is scrolled down
      */
@@ -89,15 +91,15 @@ export const AppHeader = () => {
                 <nav id="navmenu" className="navmenu flex items-center gap-0">
                     <ul>
                         <li>
-                            <a href="#hero" className="active">
+                            <a href="/#hero" className="active">
                                 Home
                             </a>
                         </li>
                         <li>
-                            <a href="#about">About</a>
+                            <a href="/#about">About</a>
                         </li>
                         <li>
-                            <a href="#menu">Menu</a>
+                            <a href="/#menu">Menu</a>
                         </li>
                         {/* <li>
                             <a href="#events">Events</a>
@@ -150,7 +152,7 @@ export const AppHeader = () => {
                             </ul>
                         </li> */}
                         <li>
-                            <a href="#contact">Contact</a>
+                            <a href="/#contact">Contact</a>
                         </li>
                         <li>
                             <a
@@ -162,14 +164,15 @@ export const AppHeader = () => {
                         </li>
                     </ul>
                     <i className="mobile-nav-toggle d-xl-none bi bi-list" ref={mobileNavToggleBtn}></i>
-                    <a href="/cart" className="m-0">
-                        <i className="bi bi-cart"></i>
-                        <span className="sr-only">Cart</span>
+                    <a href="/cart" className="relative m-0" style={{ display: `${location.pathname == '/cart' ? 'none' : 'block'}` }}>
+                        <div className="scale-150">
+                            <span className="bi bi-cart"></span>
+                            <span className="sr-only">Cart</span>
+                        </div>
+                        <span className="absolute top-0 right-2 z-10 flex h-[20px] w-[20px] items-center justify-center rounded-full bg-red-500 text-[15px] font-bold text-white shadow-md">
+                            {cart.length}
+                        </span>
                     </a>
-
-                    {/* <a className="btn-getstarted" href="/#book-a-table">
-                    Book a Table
-                    </a> */}
                 </nav>
             </div>
         </header>
