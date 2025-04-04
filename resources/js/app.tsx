@@ -4,6 +4,7 @@ import '../css/main.css';
 import { createInertiaApp } from '@inertiajs/react';
 import { resolvePageComponent } from 'laravel-vite-plugin/inertia-helpers';
 import { createRoot } from 'react-dom/client';
+import { Preloader } from './components/utils/Preloader';
 import { CartProvider } from './contexts/CartContext';
 import { initializeTheme } from './hooks/use-appearance';
 
@@ -17,7 +18,9 @@ createInertiaApp({
 
         root.render(
             <CartProvider>
-                <App {...props} />
+                <Preloader>
+                    <App {...props} />
+                </Preloader>
             </CartProvider>,
         );
     },
